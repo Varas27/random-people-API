@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start --prefix api",
     "api": "npm start --prefix api",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run api\" \"npm run client\""
