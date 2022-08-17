@@ -1,15 +1,14 @@
 const express = require('express');
 const app = express();
-const serverRoutes = require('./routes')
-const cors = require('cors')
+const serverRoutes = require('./routes');
+const cors = require('cors');
+const config = require('./config');
 
-const PORT = 8080
-
-app.use(cors());
+app.use(cors(config.CORS));
 app.use(express.json());
 
 serverRoutes(app);
 
-app.listen(PORT, () => {
-    console.log(`Connected to http://localhost:${PORT}`)
+app.listen(process.env.PORT || config.PORT, () => {
+    console.log(`Connected to http://localhost:${config.PORT}`)
 })

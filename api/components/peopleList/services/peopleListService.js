@@ -3,7 +3,7 @@ const axios = require('axios');
 class peopleListService {
     getList = async () => {
         try {
-            const response = await axios.get('https://randomuser.me/api/?page=1&results=2');
+            const response = await axios.get('https://randomuser.me/api/?page=1&results=5');
             return response.data;
         }
         catch (err) {

@@ -1,0 +1,52 @@
+.person-card {
+    background: white;
+    border-radius: 20px;
+    transition: background .2s;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.banner {
+    height: 6rem;
+    border-radius: 20px 20px 0 0;
+    background: #007171;
+    border-bottom: 3px #00B7B7 solid;
+    box-shadow: 0 4px #007171;
+}
+
+.avatar {
+    position: relative;
+    top: -50px;
+    left: 30px;
+    height: 55px;
+}
+
+.avatar img {
+    border-radius: 50%;
+    outline: 5px #fff solid;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transition: filter .2s;
+}
+
+.avatar img:hover {
+    filter: brightness(80%);
+    cursor:pointer;
+}
+
+.content {
+    padding: 1rem 2rem;
+}
+
+.age {
+    font-size: 0.85rem;
+    color: #616161;
+}
+
+.email,
+.country {
+    font-size: 0.9rem;
+}
