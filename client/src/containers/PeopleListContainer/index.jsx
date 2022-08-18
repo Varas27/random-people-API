@@ -2,11 +2,10 @@ import { PeopleList } from "../../components/PeopleList";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const apiUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'random-people-vercel.com'
+const apiUrl = process.env.NODE_ENV === 'development' ? `http://localhost:${process.env.PORT || 8080}` : 'https://random-people-varas.herokuapp.com'
 console.log(apiUrl)
 
 export const PeopleListContainer = () => {
-
 
     const [data, setData] = useState([]);
 
