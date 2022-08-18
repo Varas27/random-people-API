@@ -1,4 +1,4 @@
-const peopleList = require('../components/PeopleList');
+const peopleList = require('../components/peopleList');
 
 module.exports = app => {
     peopleList(app)
