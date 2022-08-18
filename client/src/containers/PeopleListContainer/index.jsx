@@ -1,21 +1,35 @@
 import { PeopleList } from "../../components/PeopleList";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Loading } from "../../components/Loading";
 
-const apiUrl = process.env.NODE_ENV === 'development' ? `http://localhost:${process.env.PORT || 8080}` : 'https://random-people-varas.herokuapp.com'
+const apiUrl = process.env.NODE_ENV === 'development' ? `http://localhost:${process.env.PORT || 8080}` : 'https://random-people-varas.herokuapp.com';
 
 export const PeopleListContainer = () => {
 
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        axios.get(apiUrl+'/api/peopleList')
-            .then(response => setData(response.data.results))
+        axios.get(apiUrl + '/api/peopleList')
+            .then(response => {
+                setData(response.data);
+                setIsLoading(false);
+            })
     }, [])
-
+    
     return (
         <>
-            <PeopleList people={data} />
+            {
+                isLoading ?
+                    <div className="loading">
+                        <Loading />
+                    </div>
+
+                    :
+
+                    <PeopleList people={data} />
+            }
         </>
     )
 }

@@ -2,6 +2,7 @@
     background: white;
     border-radius: 20px;
     transition: background .2s;
+    overflow: hidden;
 }
 
 .bold {
@@ -18,6 +19,8 @@
 
 .avatar {
     position: relative;
+    width: 100px;
+    height: 100px;
     top: -50px;
     left: 30px;
     height: 55px;
@@ -26,8 +29,6 @@
 .avatar img {
     border-radius: 50%;
     outline: 5px #fff solid;
-    width: 100px;
-    height: 100px;
     position: relative;
     transition: filter .2s;
 }
@@ -49,4 +50,10 @@
 .email,
 .country {
     font-size: 0.9rem;
+}
+
+#react-modal-image-img{
+    filter: brightness(100%);
+    cursor: auto;
+    border-radius: 20%;
 }

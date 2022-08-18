@@ -1,5 +1,6 @@
 import './styles.css'
 import { BiFemaleSign, BiMaleSign } from 'react-icons/bi';
+import ModalImage from "react-modal-image";
 
 export const Card = ({ name, lastname, country, age, email, pfp, gender }) => {
     return (
@@ -13,7 +14,7 @@ export const Card = ({ name, lastname, country, age, email, pfp, gender }) => {
                     }
                 </div>
                 <div className="avatar">
-                    <img src={pfp} alt="" className='img-fluid' />
+                    <ModalImage small={pfp} medium={pfp} alt={`${name} ${lastname} avatar`} hideZoom={true} className='img-fluid' />
                 </div>
                 <div className="content">
                     <h1 className='h5 mb-1'>{name} {lastname}</h1>
