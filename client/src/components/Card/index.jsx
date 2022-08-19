@@ -14,7 +14,7 @@ export const Card = ({ name, lastname, country, age, email, pfp, gender }) => {
                     }
                 </div>
                 <div className="avatar">
-                    <ModalImage small={pfp} medium={pfp} alt={`${name} ${lastname} avatar`} hideZoom={true} className='img-fluid' />
+                    <ModalImage small={pfp} medium={pfp} alt={`${name} ${lastname} avatar`} hideZoom={true} hideDownload={true} />
                 </div>
                 <div className="content">
                     <h1 className='h5 mb-1'>{name} {lastname}</h1>

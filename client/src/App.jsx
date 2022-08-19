@@ -4,7 +4,9 @@ import { PeopleListContainer } from './containers/PeopleListContainer';
 function App() {
   return (
     <div className="App">
-      <PeopleListContainer />
+      <div className="container">
+        <PeopleListContainer />
+      </div>
     </div>
   );
 }

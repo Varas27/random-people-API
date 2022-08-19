@@ -19,8 +19,7 @@
 
 .avatar {
     position: relative;
-    width: 100px;
-    height: 100px;
+
     top: -50px;
     left: 30px;
     height: 55px;
@@ -31,6 +30,8 @@
     outline: 5px #fff solid;
     position: relative;
     transition: filter .2s;
+    width: 100px;
+    height: 100px;
 }
 
 .avatar img:hover {
@@ -56,4 +57,6 @@
     filter: brightness(100%);
     cursor: auto;
     border-radius: 20%;
+    width: auto;
+    height: auto;
 }

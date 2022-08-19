@@ -10,6 +10,16 @@ class peopleListController {
             console.error(err);
         }
     }
+
+    postToList = async (req, res) => {
+        try {
+            let newPerson = req.body;
+            await peopleListService.postToList(newPerson);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 module.exports = new peopleListController()
