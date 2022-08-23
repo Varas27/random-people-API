@@ -9,20 +9,30 @@ const apiUrl = process.env.NODE_ENV === 'development' ? `http://localhost:${proc
 export const PeopleListContainer = () => {
 
     const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+
+    const fetchData = () => {
+        try {
+            axios.get(apiUrl + '/api/peopleList')
+                .then(response => {
+                    setData(response.data);
+                    setIsLoading(false);
+                })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     const handleSubmit = (e, object) => {
         e.preventDefault();
         axios.post(apiUrl + '/api/peopleList/post', object);
+        setTimeout(() => window.scrollTo(0, document.body.scrollHeight),100)
     }
 
     useEffect(() => {
-        axios.get(apiUrl + '/api/peopleList')
-            .then(response => {
-                setData(response.data);
-                setIsLoading(false);
-            })
-    }, [data])
+        fetchData();
+    },[data])
 
     return (
         <>

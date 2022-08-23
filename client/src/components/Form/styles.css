@@ -35,10 +35,11 @@
     border-color: #007171;
     border-radius: 0;
     padding: 0 0.75rem;
-    font-size:0.95rem;
+    font-size: 0.95rem;
 }
 
-label[for="genderChoice1"], label[for="genderChoice2"] {
+label[for="genderChoice1"],
+label[for="genderChoice2"] {
     font-size: 0.95rem;
 }
 
@@ -59,4 +60,45 @@ input[type="number"] {
 
 .form-control {
     padding: 0 0.3rem !important;
+}
+
+.btn-add-form,
+.btn-close-form,
+.btn-open-form {
+    border: 2px solid #007171;
+    padding: 0.3rem;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: background .2s;
+}
+
+.btn-add-form {
+    background: #007171;
+    color: #fff;
+}
+
+.btn-add-form:hover {
+    border: 2px solid #005B5B;
+    background: #005B5B;
+}
+
+.btn-close-form {
+    background: transparent;
+    color: #007171;
+}
+
+.btn-close-form:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #005B5B;
+    color: #005B5B;
+}
+
+.btn-open-form {
+    background: #007171;
+    color: #fff;
+    padding: 0.3rem 0.7rem;
+}
+
+.disabled.btn-open-form{
+    opacity: 0.55;
 }

@@ -46,13 +46,11 @@ export const Form = ({ handleSubmit }) => {
 
     return (
         <>
-            <button className="btn btn-primary" onClick={() => setModal(true)}>Add a new person</button>
-
             {modal ?
                 <>
-                    <div className="modal-background d-flex justify-content-center align-items-center">
-                        <Animated animationIn="fadeInUp" animationInDuration={200} isVisible={modal}>
-                            <div className="modal-form mx-4">
+                    <div className="modal-background d-flex justify-content-center align-items-center mt-4">
+                        <Animated animationIn="fadeInDown" animationInDuration={200} isVisible={modal}>
+                            <div className="modal-form">
                                 <form id="form-person">
                                     <div className="row">
                                         <div className="form-group col-sm-6 col-lg-5">
@@ -90,8 +88,10 @@ export const Form = ({ handleSubmit }) => {
                                         </div>
                                     </div>
                                 </form>
-                                <button className="btn btn-primary" onClick={enabled ? (e) => { handleSubmit(e, person); finishForm() } : null}>Add</button>
-                                <button className="btn btn-primary" onClick={() => setModal(false)}>Close</button>
+                                <div className="row justify-content-center">
+                                    <button className="btn-add-form col-11 col-md-4 col-xl-3 mx-3 mb-4 mb-md-0" onClick={enabled ? (e) => { handleSubmit(e, person); finishForm() } : null}>Add</button>
+                                    <button type="button" className="btn-close-form col-11 col-md-4 col-xl-3 mx-3 btn-disable" onClick={() => setModal(false)}>Close</button>
+                                </div>
                             </div>
                         </Animated>
                     </div>
@@ -99,6 +99,9 @@ export const Form = ({ handleSubmit }) => {
                 :
                 null
             }
+            <div className="d-flex">
+                <button className={`btn-open-form mt-4 ms-auto ${modal ? 'disabled' : ''}`} disabled={modal ? true : false} onClick={() => setModal(true)}>Add a new person</button>
+            </div>
         </>
     )
 }
