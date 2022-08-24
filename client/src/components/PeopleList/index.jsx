@@ -5,11 +5,9 @@ export const PeopleList = ({ people }) => {
         <>
             <div className="container">
                 <div className="row justify-content-center">
-                    {people.map(person => {
+                    {people.map((person, i) => {
                         return (
-                            <>
-                                <Person person={person} />
-                            </>
+                                <Person person={person} key={i}/>
                         )
                     })}
                 </div>

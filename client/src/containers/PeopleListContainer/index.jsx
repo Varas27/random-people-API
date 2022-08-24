@@ -17,6 +17,9 @@ export const PeopleListContainer = () => {
                 .then(response => {
                     setData(response.data);
                     setIsLoading(false);
+                    for(let i in data){
+                        data[i].id = i
+                    }
                 })
         }
         catch (err) {
@@ -27,12 +30,12 @@ export const PeopleListContainer = () => {
     const handleSubmit = (e, object) => {
         e.preventDefault();
         axios.post(apiUrl + '/api/peopleList/post', object);
-        setTimeout(() => window.scrollTo(0, document.body.scrollHeight),100)
+        setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 300)
     }
 
     useEffect(() => {
         fetchData();
-    },[data])
+    }, [data])
 
     return (
         <>
@@ -43,6 +46,7 @@ export const PeopleListContainer = () => {
                     </div>
 
                     :
+
                     <>
                         <Form handleSubmit={handleSubmit} />
                         <PeopleList people={data} />
