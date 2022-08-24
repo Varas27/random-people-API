@@ -30,7 +30,7 @@ export const PeopleListContainer = () => {
     const handleSubmit = (e, object) => {
         e.preventDefault();
         axios.post(apiUrl + '/api/peopleList/post', object);
-        setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 300)
+        setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 2000)
     }
 
     useEffect(() => {
