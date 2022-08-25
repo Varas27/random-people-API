@@ -78,8 +78,8 @@ input[type="radio"]:checked {
 }
 
 input[type="radio"].valid:before,
-input[type="radio"]:focus:before,
-input[type="radio"].invalid:before {
+input[type="radio"].invalid:before,
+input[type="radio"]:checked:before {
     content: '';
     display: block;
     width: 100%;
@@ -88,7 +88,7 @@ input[type="radio"].invalid:before {
 }
 
 input[type="radio"].valid:before,
-input[type="radio"]:focus:before {
+input[type="radio"]:checked:before {
     background: #008A8A;
 }
 
@@ -138,9 +138,18 @@ input[type="radio"].invalid:before {
 .btn-open-form {
     background: #007171;
     color: #fff;
-    padding: 0.3rem 0.7rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+}
+
+.btn-open-form:hover {
+    background: rgba(0, 133, 133, 0.9);
 }
 
 .disabled.btn-open-form {
     opacity: 0.55;
+}
+
+.disabled.btn-open-form:hover {
+    background: #007171;
 }

@@ -48,7 +48,6 @@ export const Form = ({ handleSubmit }) => {
         }
     }, [gender, name, lastName, pfp, email, age, country]);
 
-
     return (
         <>
             {modal ?

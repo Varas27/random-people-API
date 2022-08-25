@@ -1,0 +1,46 @@
+.sort-button,
+.sortBy-button {
+  background: none;
+  border: none;
+  font-weight: 500;
+}
+
+.sort-button {
+  color: #005555;
+}
+
+.sort-menu {
+  background: #007171;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 1);
+  width: 8rem;
+  position: absolute;
+  margin-top: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.sort-menu ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sort-menu ul li {
+  list-style-type: none;
+  font-size: 0.9rem;
+  border-right: 7px solid transparent;
+  padding-left: 7px;
+  padding-right: 0;
+}
+
+.sort-menu ul li:hover {
+  background: rgba(0, 133, 133, 0.8);
+  border-right: 7px solid #00B7B7;
+}
+
+.sortBy-button {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 0.3rem;
+}

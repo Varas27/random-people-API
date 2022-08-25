@@ -28,7 +28,7 @@ class peopleListService {
     };
 
     postToList = async (person) => {
-        await this.peopleList.push(person);
+        await this.peopleList.unshift(person);
     }
 }
 

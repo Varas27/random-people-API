@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Loading } from "../../components/Loading";
 import { Form } from '../../components/Form';
+import { Sorting } from "../../components/Sorting";
 
 const apiUrl = process.env.NODE_ENV === 'development' ? `http://localhost:${process.env.PORT || 8080}` : 'https://random-people-varas.herokuapp.com';
 
@@ -10,6 +11,7 @@ export const PeopleListContainer = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [toggleSort, setToggleSort] = useState(false)
 
     const fetchData = () => {
         try {
@@ -23,16 +25,35 @@ export const PeopleListContainer = () => {
             console.log(err)
         }
     }
-
     const handleSubmit = (e, object) => {
-        e.preventDefault();
-        axios.post(apiUrl + '/api/peopleList/post', object);
-        setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 600)
+        try {
+            e.preventDefault();
+            axios.post(apiUrl + '/api/peopleList/post', object)
+                .then(response => {
+                    setData(response.data)
+                })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleSort = () => {
+        const sortedData = [...data].sort((a, b) => {
+            if (toggleSort === true) {
+                setToggleSort(false)
+                return a.name < b.name ? 1 : -1
+            } else {
+                setToggleSort(true)
+                return a.name > b.name ? 1 : -1
+            }
+        })
+        setData(sortedData);
     }
 
     useEffect(() => {
         fetchData();
-    }, [data])
+    }, [])
 
     return (
         <>
@@ -46,6 +67,7 @@ export const PeopleListContainer = () => {
 
                     <>
                         <Form handleSubmit={handleSubmit} />
+                        <Sorting handleSort={handleSort} sort={toggleSort}/>
                         <PeopleList people={data} />
                     </>
             }
