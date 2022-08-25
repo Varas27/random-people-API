@@ -33,14 +33,14 @@
   padding-right: 0;
 }
 
-.sort-menu ul li:hover {
-  background: rgba(0, 133, 133, 0.8);
-  border-right: 7px solid #00B7B7;
-}
-
 .sortBy-button {
   color: #fff;
   width: 100%;
   text-align: center;
   padding: 0.6rem 0.3rem;
+}
+
+.sort-menu ul li:hover, .sortBy-list-active {
+  background: rgba(0, 133, 133, 0.8);
+  border-right: 7px solid #00B7B7 !important;
 }

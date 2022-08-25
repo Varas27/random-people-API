@@ -11,7 +11,7 @@ export const PeopleListContainer = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [toggleSort, setToggleSort] = useState(false)
+    const [toggleSort, setToggleSort] = useState({ order: false, property: 'default' })
 
     const fetchData = () => {
         try {
@@ -38,14 +38,14 @@ export const PeopleListContainer = () => {
         }
     }
 
-    const handleSort = () => {
+    const handleSort = (property) => {
         const sortedData = [...data].sort((a, b) => {
-            if (toggleSort === true) {
-                setToggleSort(false)
-                return a.name < b.name ? 1 : -1
+            if (toggleSort.order) {
+                setToggleSort({...toggleSort, order: false, property: property})
+                return a[property] < b[property] ? 1 : -1
             } else {
-                setToggleSort(true)
-                return a.name > b.name ? 1 : -1
+                setToggleSort({...toggleSort, order: true, property: property})
+                return a[property] > b[property] ? 1 : -1
             }
         })
         setData(sortedData);
@@ -67,7 +67,7 @@ export const PeopleListContainer = () => {
 
                     <>
                         <Form handleSubmit={handleSubmit} />
-                        <Sorting handleSort={handleSort} sort={toggleSort}/>
+                        <Sorting handleSort={handleSort} sort={toggleSort} />
                         <PeopleList people={data} />
                     </>
             }

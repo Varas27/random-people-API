@@ -48,6 +48,10 @@ export const Form = ({ handleSubmit }) => {
         }
     }, [gender, name, lastName, pfp, email, age, country]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [modal])
+
     return (
         <>
             {modal ?
