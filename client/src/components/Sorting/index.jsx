@@ -7,7 +7,7 @@ export const Sorting = ({ handleSort, sort }) => {
     const [sortMenu, setSortMenu] = useState(false)
 
     return (
-        <>
+        <div className="sort">
             <button type="button" className="sort-button" onClick={() => sortMenu ? setSortMenu(false) : setSortMenu(true)}>
                 Sort by {sortMenu ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
             </button>
@@ -24,6 +24,6 @@ export const Sorting = ({ handleSort, sort }) => {
                 :
                 null
             }
-        </>
+        </div>
     )
 }

@@ -7,7 +7,7 @@ export const PeopleList = ({ people }) => {
                 <div className="row justify-content-center">
                     {people.map((person, i) => {
                         return (
-                            <Person person={person} key={i}/>
+                            <Person person={person} key={i} />
                         )
                     })}
                 </div>

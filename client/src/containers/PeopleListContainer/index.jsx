@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Loading } from "../../components/Loading";
 import { Form } from '../../components/Form';
 import { Sorting } from "../../components/Sorting";
+import { Search } from "../../components/Search";
 
 const apiUrl = process.env.NODE_ENV === 'development' ? `http://localhost:${process.env.PORT || 8080}` : 'https://random-people-varas.herokuapp.com';
 
@@ -11,7 +12,8 @@ export const PeopleListContainer = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [toggleSort, setToggleSort] = useState({ order: false, property: 'default' })
+    const [toggleSort, setToggleSort] = useState({ order: false, property: 'default' });
+    const [search, setSearch] = useState('')
 
     const fetchData = () => {
         try {
@@ -41,10 +43,10 @@ export const PeopleListContainer = () => {
     const handleSort = (property) => {
         const sortedData = [...data].sort((a, b) => {
             if (toggleSort.order) {
-                setToggleSort({...toggleSort, order: false, property: property})
+                setToggleSort({ ...toggleSort, order: false, property: property })
                 return a[property] < b[property] ? 1 : -1
             } else {
-                setToggleSort({...toggleSort, order: true, property: property})
+                setToggleSort({ ...toggleSort, order: true, property: property })
                 return a[property] > b[property] ? 1 : -1
             }
         })
@@ -67,8 +69,16 @@ export const PeopleListContainer = () => {
 
                     <>
                         <Form handleSubmit={handleSubmit} />
-                        <Sorting handleSort={handleSort} sort={toggleSort} />
-                        <PeopleList people={data} />
+                        <div className="filters-bar mt-3">
+                            <Sorting handleSort={handleSort} sort={toggleSort} />
+                            <Search search={search} setSearch={setSearch} />
+                        </div>
+                        {
+                            !search ?
+                                <PeopleList people={data} />
+                                :
+                                <PeopleList people={data.filter(person => `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(search.toLowerCase()))} />
+                        }
                     </>
             }
         </>

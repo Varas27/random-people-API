@@ -1,0 +1,48 @@
+.filters-bar {
+    display: flex;
+    align-items: center;
+}
+
+.filters-bar::after {
+    flex: 1;
+    content: ''
+}
+
+.search {
+    width: 40%;
+    padding: 0.4rem 0.7rem;
+    border-radius: 10px;
+    border: 2px solid #017170;
+    text-align: center;
+    background: #fff;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 90%;
+}
+
+.search:focus-within {
+    border: 2px solid rgba(0, 133, 133, 0.5);
+    outline: none;
+}
+
+.remove {
+    color: #017170;
+}
+
+.remove:hover {
+    color: rgba(0, 133, 133, 0.5);
+}
+
+@media only screen and (max-width: 767px) {
+    .filters-bar::after {
+        flex: 0;
+        content: ''
+    }
+
+    .search {
+        width: 65%;
+    }
+}

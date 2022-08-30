@@ -1,3 +1,7 @@
+.sort {
+  flex:1
+}
+
 .sort-button,
 .sortBy-button {
   background: none;
