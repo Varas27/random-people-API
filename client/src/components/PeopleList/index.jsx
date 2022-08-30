@@ -1,3 +1,4 @@
+import { NoResults } from "../NoResults";
 import { Person } from "../Person";
 
 export const PeopleList = ({ people }) => {
@@ -5,11 +6,15 @@ export const PeopleList = ({ people }) => {
         <>
             <div className="container">
                 <div className="row justify-content-center">
-                    {people.map((person, i) => {
-                        return (
-                            <Person person={person} key={i} />
-                        )
-                    })}
+                    {people.length > 0 ?
+                        people.map((person, i) => {
+                            return (
+                                <Person person={person} key={i} />
+                            )
+                        })
+                        :
+                        <NoResults />
+                    }
                 </div>
             </div>
         </>

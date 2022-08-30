@@ -30,6 +30,7 @@
 
 .remove {
     color: #017170;
+    background: none;
 }
 
 .remove:hover {
