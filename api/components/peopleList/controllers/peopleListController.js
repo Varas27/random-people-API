@@ -22,6 +22,18 @@ class peopleListController {
             console.error(err);
         }
     }
+
+    deleteFromList = async (req, res) => {
+        try {
+            let id = req.params.id;
+            await peopleListService.deleteFromList(id)
+            const peopleList = await peopleListService.getList();
+            res.json(peopleList);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 module.exports = new peopleListController()

@@ -11,5 +11,5 @@ app.use(express.json());
 serverRoutes(app);
 
 app.listen(process.env.PORT || config.PORT, () => {
-    console.log(`Connected to http://localhost:${config.PORT}`)
+    console.log(`Connected to ${config.NODE_ENV === 'development' ? `http://localhost:${config.PORT}` : 'https://random-people-varas.herokuapp.com'}`)
 })

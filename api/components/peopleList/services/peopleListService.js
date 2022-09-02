@@ -1,12 +1,14 @@
 const { faker } = require('@faker-js/faker');
+const { v4: uuidv4 } = require('uuid');
 const genders = ['male', 'female']
-
 class peopleListService {
     peopleList = [];
+    firstTime = true;
 
     getList = async () => {
         try {
-            if (this.peopleList.length <= 0) {
+            if (this.firstTime) {
+                this.firstTime = false;
                 for (let i = 0; i < 5; i++) {
                     let gender = faker.helpers.arrayElement(genders);
                     let name = faker.name.firstName(gender);
@@ -15,8 +17,9 @@ class peopleListService {
                     let email = faker.internet.email(name, lastName);
                     let age = faker.datatype.number({ min: 10, max: 80 });
                     let country = faker.address.country();
+                    let id = uuidv4()
 
-                    let person = { gender, name, lastName, pfp, email, age, country };
+                    let person = { gender, name, lastName, pfp, email, age, country, id };
                     this.peopleList.push(person);
                 }
             }
@@ -28,7 +31,13 @@ class peopleListService {
     };
 
     postToList = async (person) => {
-        await this.peopleList.unshift(person);
+        person.id = uuidv4();
+        this.peopleList.unshift(person);
+    }
+
+    deleteFromList = async (id) => {
+        const newList = this.peopleList.filter(person => person.id !== id);
+        this.peopleList = newList;
     }
 }
 

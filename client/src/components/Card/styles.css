@@ -10,11 +10,37 @@
 }
 
 .banner {
+    display: flex;
+    position: relative;
     height: 6rem;
     border-radius: 20px 20px 0 0;
     background: #007171;
     border-bottom: 3px #00B7B7 solid;
     box-shadow: 0 4px #007171;
+}
+
+.delete-button {
+    width: 25px;
+    height: 25px;
+    background: none;
+    color: #fff;
+}
+
+.delete-button:hover {
+    opacity: 0.5;
+}
+
+.gender {
+    position: absolute;
+    bottom: 5px;
+    left: 145px;
+    color: #fff;
+}
+
+.gender .age {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
 }
 
 .avatar {
@@ -27,7 +53,6 @@
 .avatar img {
     border-radius: 50%;
     outline: 5px #fff solid;
-    position: relative;
     transition: filter .2s;
     width: 100px;
     height: 100px;
@@ -35,24 +60,20 @@
 
 .avatar img:hover {
     filter: brightness(80%);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .content {
     padding: 1rem 2rem;
 }
 
-.age {
-    font-size: 0.85rem;
-    color: #616161;
-}
-
 .email,
 .country {
     font-size: 0.9rem;
+    color: #414141;
 }
 
-#react-modal-image-img{
+#react-modal-image-img {
     filter: brightness(100%);
     cursor: auto;
     border-radius: 20%;

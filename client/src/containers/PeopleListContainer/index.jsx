@@ -27,10 +27,23 @@ export const PeopleListContainer = () => {
             console.log(err)
         }
     }
+
     const handleSubmit = (e, object) => {
         try {
             e.preventDefault();
             axios.post(apiUrl + '/api/peopleList/post', object)
+                .then(response => {
+                    setData(response.data)
+                })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleDelete = id => {
+        try {
+            axios.delete(apiUrl + '/api/peopleList/delete/' + id)
                 .then(response => {
                     setData(response.data)
                 })
@@ -75,9 +88,9 @@ export const PeopleListContainer = () => {
                         </div>
                         {
                             !search ?
-                                <PeopleList people={data} />
+                                <PeopleList people={data} handleDelete={handleDelete} />
                                 :
-                                <PeopleList people={data.filter(person => `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(search.toLowerCase()))} />
+                                <PeopleList people={data.filter(person => `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(search.toLowerCase()))} handleDelete={handleDelete} />
                         }
                     </>
             }
