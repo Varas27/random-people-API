@@ -34,6 +34,19 @@ class peopleListController {
             console.error(err);
         }
     }
+
+    putById = async (req, res) => {
+        try {
+            let id = req.params.id;
+            let editedPerson = req.body;
+            await peopleListService.putById(id, editedPerson)
+            const peopleList = await peopleListService.getList();
+            res.json(peopleList);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 module.exports = new peopleListController()

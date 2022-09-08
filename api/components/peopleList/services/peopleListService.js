@@ -17,7 +17,7 @@ class peopleListService {
                     let email = faker.internet.email(name, lastName);
                     let age = faker.datatype.number({ min: 10, max: 80 });
                     let country = faker.address.country();
-                    let id = uuidv4()
+                    let id = uuidv4();
 
                     let person = { gender, name, lastName, pfp, email, age, country, id };
                     this.peopleList.push(person);
@@ -31,13 +31,33 @@ class peopleListService {
     };
 
     postToList = async (person) => {
-        person.id = uuidv4();
-        this.peopleList.unshift(person);
+        try {
+            person.id = uuidv4();
+            this.peopleList.unshift(person);
+        }
+        catch (err) {
+            console.error(err);
+        }
     }
 
     deleteFromList = async (id) => {
-        const newList = this.peopleList.filter(person => person.id !== id);
-        this.peopleList = newList;
+        try {
+            const newList = this.peopleList.filter(person => person.id !== id);
+            this.peopleList = newList;
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
+
+    putById = async (id, editedPerson) => {
+        try {
+            let index = this.peopleList.findIndex((person => person.id === id));
+            this.peopleList[index] = editedPerson;
+        }
+        catch (err) {
+            console.error(err);
+        }
     }
 }
 
