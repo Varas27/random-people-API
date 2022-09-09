@@ -30,10 +30,6 @@
     height: 100px;
 }
 
-.select-gender {
-    z-index: 99;
-}
-
 .person-card-modal input {
     outline: 0;
     border-width: 0 0 2px;

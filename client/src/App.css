@@ -1,3 +1,19 @@
 body {
-  background: #FCD743 !important;
+  background: #FDE06F !important;
+}
+
+.wave-container-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -99;
+}
+
+.wave-container-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -99;
 }
