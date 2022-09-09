@@ -13,6 +13,10 @@
   color: #005555;
 }
 
+.sort-button:hover {
+  color: rgba(0, 133, 133, 0.9);
+}
+
 .sort-menu {
   background: #007171;
   box-shadow: 0 0 4px rgba(0, 0, 0, 1);

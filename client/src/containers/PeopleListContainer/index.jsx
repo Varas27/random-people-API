@@ -28,7 +28,7 @@ export const PeopleListContainer = () => {
         }
     }
 
-    const handleSubmit = (e, object) => {
+    const handlePost = (e, object) => {
         try {
             e.preventDefault();
             axios.post(apiUrl + '/api/peopleList/post', object)
@@ -93,7 +93,7 @@ export const PeopleListContainer = () => {
                     :
 
                     <>
-                        <Form handleSubmit={handleSubmit} />
+                        <Form handlePost={handlePost} />
                         <div className="filters-bar mt-3">
                             <Sorting handleSort={handleSort} sort={toggleSort} />
                             <Search search={search} setSearch={setSearch} />

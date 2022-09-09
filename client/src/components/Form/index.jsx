@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Animated } from "react-animated-css";
 import { isEmail } from 'validator';
 
-export const Form = ({ handleSubmit }) => {
+export const Form = ({ handlePost }) => {
 
     const [gender, setGender] = useState('');
     const [name, setName] = useState('');
@@ -28,7 +28,7 @@ export const Form = ({ handleSubmit }) => {
     const [handleInvalid, setHandleInvalid] = useState(false);
 
     const finishForm = (e, person) => {
-        handleSubmit(e, person);
+        handlePost(e, person);
         setHandleInvalid(false);
         setRenderForm(false);
         setGender('');
