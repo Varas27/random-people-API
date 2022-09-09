@@ -55,8 +55,8 @@ export const Form = ({ handleSubmit }) => {
     return (
         <>
             <Animated animationIn="fadeInDown" animationOut="fadeOutUp" animationInDuration={200} animationOutDuration={200} animateOnMount={false} isVisible={renderForm}>
-                <div className="modal-background d-flex justify-content-center align-items-center my-4" style={{ height: `${renderForm ? '100%' : '0px'}`, transition: 'height .15s' }}>
-                    <div className='modal-form'>
+                <div className="form-background d-flex justify-content-center align-items-center my-4" style={{ height: `${renderForm ? '100%' : '0px'}`, transition: 'height .15s' }}>
+                    <div className='form'>
                         <form id="form-person">
                             <div className="row">
                                 <div className="form-group col-sm-6 col-lg-5">

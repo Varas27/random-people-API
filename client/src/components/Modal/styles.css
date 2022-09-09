@@ -1,0 +1,51 @@
+.modal-background {
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 98;
+}
+
+.person-card-modal {
+    font-size: 0.9rem;
+}
+
+.avatar-modal {
+    position: relative;
+    top: -50px;
+    left: 30px;
+    height: 55px;
+}
+
+.avatar-modal img {
+    border-radius: 50%;
+    outline: 5px #fff solid;
+    transition: filter .2s;
+    width: 100px;
+    height: 100px;
+}
+
+.select-gender {
+    z-index: 99;
+}
+
+.person-card-modal input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #007171;
+    border-radius: 0;
+    padding: 1px 0.25rem;
+}
+
+.person-card-modal input:focus {
+    border-color: rgba(0, 133, 133, 0.5);
+}
+
+.person-card-modal select {
+    outline: 0;
+}

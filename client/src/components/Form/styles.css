@@ -13,13 +13,13 @@
     }
 }
 
-.modal-form {
+.form {
     background-color: #fff;
     border-radius: 10px;
     padding: 1.5em;
 }
 
-.modal-form p {
+.form p {
     color: #4F4F4F;
     font-weight: 300;
     font-size: 1.1rem;
@@ -29,7 +29,7 @@
     margin-bottom: 2rem;
 }
 
-.modal-form input {
+.form input {
     outline: 0;
     border-width: 0 0 2px;
     border-color: #007171;
@@ -43,7 +43,7 @@ label[for="genderChoice2"] {
     font-size: 0.95rem;
 }
 
-.modal-form input:focus {
+.form input:focus {
     border-color: rgba(0, 133, 133, 0.5);
     box-shadow: none;
 }

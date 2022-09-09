@@ -19,14 +19,14 @@
     box-shadow: 0 4px #007171;
 }
 
-.delete-button {
+.delete-button, .edit-button {
     width: 25px;
     height: 25px;
     background: none;
     color: #fff;
 }
 
-.delete-button:hover {
+.delete-button:hover, .edit-button:hover {
     opacity: 0.5;
 }
 

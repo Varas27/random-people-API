@@ -53,6 +53,18 @@ export const PeopleListContainer = () => {
         }
     }
 
+    const handlePut = (id, editedPerson) => {
+        try {
+            axios.put(apiUrl + '/api/peopleList/put/' + id, editedPerson)
+                .then(response => {
+                    setData(response.data)
+                })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
     const handleSort = (property) => {
         const sortedData = [...data].sort((a, b) => {
             if (toggleSort.order) {
@@ -88,9 +100,9 @@ export const PeopleListContainer = () => {
                         </div>
                         {
                             !search ?
-                                <PeopleList people={data} handleDelete={handleDelete} />
+                                <PeopleList people={data} handleDelete={handleDelete} handlePut={handlePut} />
                                 :
-                                <PeopleList people={data.filter(person => `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(search.toLowerCase()))} handleDelete={handleDelete} />
+                                <PeopleList people={data.filter(person => `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(search.toLowerCase()))} handleDelete={handleDelete} handlePut={handlePut} />
                         }
                     </>
             }
