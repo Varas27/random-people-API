@@ -1,0 +1,26 @@
+{
+  "name": "random-people",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "npm run dev --prefix api",
+    "client": "npm start --prefix client",
+    "development": "concurrently \"npm run api\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Varas27/random-people-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Varas27/random-people-API/issues"
+  },
+  "homepage": "https://github.com/Varas27/random-people-API#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
