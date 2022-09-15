@@ -120,8 +120,8 @@ input[type="radio"].invalid:before {
 }
 
 .btn-add-form:hover {
-    border: 2px solid #005B5B;
-    background: #005B5B;
+    border: 2px solid rgba(0, 133, 133, 0.9);
+    background: rgba(0, 133, 133, 0.9);
 }
 
 .btn-close-form {

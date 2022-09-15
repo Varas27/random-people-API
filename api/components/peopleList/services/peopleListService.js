@@ -9,7 +9,7 @@ class peopleListService {
         try {
             if (this.firstTime) {
                 this.firstTime = false;
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 15; i++) {
                     let gender = faker.helpers.arrayElement(genders);
                     let name = faker.name.firstName(gender);
                     let lastName = faker.name.lastName();
@@ -17,9 +17,10 @@ class peopleListService {
                     let email = faker.internet.email(name, lastName);
                     let age = faker.datatype.number({ min: 10, max: 80 });
                     let country = faker.address.country();
+                    let origin = 'default';
                     let id = uuidv4();
 
-                    let person = { gender, name, lastName, pfp, email, age, country, id };
+                    let person = { gender, name, lastName, pfp, email, age, country, origin, id };
                     this.peopleList.push(person);
                 }
             }
@@ -32,6 +33,7 @@ class peopleListService {
 
     postToList = async (person) => {
         try {
+            person.origin = 'created';
             person.id = uuidv4();
             this.peopleList.unshift(person);
         }

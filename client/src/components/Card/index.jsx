@@ -9,10 +9,10 @@ export const Card = ({ name, lastName, country, age, email, pfp, gender, id, han
         <>
             <div className="col-11 col-md-4 col-lg-3 person-card mx-3 my-4 p-0">
                 <div className="banner">
-                    <button className='edit-button border-0 m-3 p-0' onClick={() => { setModal(true) }}>
+                    <button title='Edit' className='edit-button border-0 m-3 p-0' onClick={() => { setModal(true) }}>
                         <FiEdit size='25px' />
                     </button>
-                    <button className='delete-button border-0 ms-auto m-3 p-0' onClick={() => { handleDelete(id) }}>
+                    <button title='Delete' className='delete-button border-0 ms-auto m-3 p-0' onClick={() => { handleDelete(id) }}>
                         <AiOutlineDelete size='25px' />
                     </button>
                     <div className='gender d-flex align-items-center'>

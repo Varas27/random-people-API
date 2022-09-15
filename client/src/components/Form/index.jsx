@@ -28,7 +28,8 @@ export const Form = ({ handlePost }) => {
     const [handleInvalid, setHandleInvalid] = useState(false);
 
     const finishForm = (e, person) => {
-        handlePost(e, person);
+        e.preventDefault();
+        handlePost(person);
         setHandleInvalid(false);
         setRenderForm(false);
         setGender('');
@@ -74,7 +75,7 @@ export const Form = ({ handlePost }) => {
                                 <div className="form-group col-sm-6 col-lg-3">
                                     <label className='w-100'>Gender</label>
                                     <div className="mt-1">
-                                        <input type="radio" checked={gender === 'male'} id="genderChoice1" className={`me-1 ${handleInvalid ? !gender ? 'invalid' : gender !== 'male' ? '' : 'valid' : null}`} name="gender" value="male" onChange={(e) => { setGender(e.target.value) }}/>
+                                        <input type="radio" checked={gender === 'male'} id="genderChoice1" className={`me-1 ${handleInvalid ? !gender ? 'invalid' : gender !== 'male' ? '' : 'valid' : null}`} name="gender" value="male" onChange={(e) => { setGender(e.target.value) }} />
                                         <label htmlFor="genderChoice1">Male</label>
                                         <input type="radio" id="genderChoice2" checked={gender === 'female'} className={`ms-3 me-1 ${handleInvalid ? !gender ? 'invalid' : gender !== 'female' ? '' : 'valid' : null}`} name="gender" value="female" onChange={(e) => { setGender(e.target.value) }} />
                                         <label htmlFor="genderChoice2">Female</label>
