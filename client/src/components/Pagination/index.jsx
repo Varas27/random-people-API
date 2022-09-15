@@ -1,4 +1,5 @@
-import './styles.css'
+import './styles.css';
+
 export const Pagination = ({ peoplePerPage, totalPeople, paginate }) => {
     const pageNumbers = [];
 
