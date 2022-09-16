@@ -128,7 +128,7 @@ export const PeopleListContainer = () => {
                                 :
                                 <PeopleList people={currentFilteredPeople} handleDelete={handleDelete} handlePut={handlePut} />
                         }
-                        <Pagination peoplePerPage={peoplePerPage} totalPeople={!search ? data.length : filteredPeople.length} paginate={paginate} />
+                        <Pagination peoplePerPage={peoplePerPage} totalPeople={!search ? data.length : filteredPeople.length} paginate={paginate} currentPage={currentPage}/>
                     </>
             }
         </>
