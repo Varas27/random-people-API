@@ -68,7 +68,7 @@ export const PeopleListContainer = () => {
             console.log(err)
         }
     }
-    
+
     useEffect(() => {
         fetchData();
     }, [])
@@ -96,15 +96,19 @@ export const PeopleListContainer = () => {
     const paginate = (pageNumber) => { setCurrentPage(pageNumber) }
 
     useEffect(() => {
-        paginate(1)
-    }, [search])
+        paginate(1);
+    }, [search]);
 
     // Data to show with pagination
-    const currentPeople = data.slice(indexOfFirstPerson, indexOfLastPerson);
+    const currentDefaultPeople = data.slice(indexOfFirstPerson, indexOfLastPerson);
 
     // Data to show with pagination while using the search bar
     const filteredPeople = data.filter(person => `${person.name.toLowerCase()} ${person.lastName.toLowerCase()}`.includes(search.toLowerCase()));
     const currentFilteredPeople = filteredPeople.slice(indexOfFirstPerson, indexOfLastPerson);
+
+    const currentPeople = !search ? currentDefaultPeople : currentFilteredPeople;
+    
+    const totalPeopleLength = !search ? data.length : filteredPeople.length;
 
     return (
         <>
@@ -122,13 +126,12 @@ export const PeopleListContainer = () => {
                             <Sorting handleSort={handleSort} sort={toggleSort} />
                             <Search search={search} setSearch={setSearch} />
                         </div>
-                        {
-                            !search ?
-                                <PeopleList people={currentPeople} handleDelete={handleDelete} handlePut={handlePut} />
-                                :
-                                <PeopleList people={currentFilteredPeople} handleDelete={handleDelete} handlePut={handlePut} />
+                        <PeopleList people={currentPeople} handleDelete={handleDelete} handlePut={handlePut} />
+                        {totalPeopleLength !== 0 ?
+                            <Pagination currentPeopleLength={currentPeople.length} peoplePerPage={peoplePerPage} totalPeopleLength={totalPeopleLength} paginate={paginate} currentPage={currentPage} />
+                            :
+                            null
                         }
-                        <Pagination peoplePerPage={peoplePerPage} totalPeople={!search ? data.length : filteredPeople.length} paginate={paginate} currentPage={currentPage}/>
                     </>
             }
         </>

@@ -1,13 +1,20 @@
 import './styles.css';
+import { useEffect } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-export const Pagination = ({ peoplePerPage, totalPeople, paginate, currentPage }) => {
+export const Pagination = ({ currentPeopleLength, peoplePerPage, totalPeopleLength, paginate, currentPage }) => {
     const pageNumbers = [];
 
-    for (let i = 1; i <= Math.ceil(totalPeople / peoplePerPage); i++) {
+    for (let i = 1; i <= Math.ceil(totalPeopleLength / peoplePerPage); i++) {
         pageNumbers.push(i);
     }
+
+    useEffect(() => {
+        if (currentPage > 1 && currentPeopleLength === 0) {
+            paginate(currentPage - 1);
+        }
+    }, [currentPage, currentPeopleLength, paginate]);
 
     return (
         <>
