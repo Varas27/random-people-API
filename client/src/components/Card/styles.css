@@ -1,7 +1,6 @@
 .person-card {
     background: white;
     border-radius: 20px;
-    transition: background .2s;
     overflow: hidden;
 }
 
@@ -19,14 +18,16 @@
     box-shadow: 0 4px #007171;
 }
 
-.delete-button, .edit-button {
+.delete-button,
+.edit-button {
     width: 25px;
     height: 25px;
     background: none;
     color: #fff;
 }
 
-.delete-button:hover, .edit-button:hover {
+.delete-button:hover,
+.edit-button:hover {
     opacity: 0.5;
 }
 
@@ -67,10 +68,36 @@
     padding: 1rem 2rem;
 }
 
+.name {
+    line-height: 1.5rem;
+    height: 1.5rem;
+}
+
 .email,
 .country {
+    line-height: 1.3rem;
+    height: 1.3rem;
     font-size: 0.9rem;
     color: #414141;
+}
+
+.name,
+.email,
+.country {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.overflow-ellipsis:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1.3rem;
+    width: 15%;
+    background: linear-gradient(90deg, transparent, white);
 }
 
 #react-modal-image-img {

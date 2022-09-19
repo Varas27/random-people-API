@@ -4,7 +4,7 @@ import { Person } from "../Person";
 export const PeopleList = ({ people, handleDelete, handlePut }) => {
     return (
         <>
-            <div className="container">
+            <div className="container people-list">
                 <div className="row justify-content-center">
                     {people.length > 0 ?
                         people.map((person) => {

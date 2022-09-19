@@ -3,8 +3,22 @@ import { BiFemaleSign, BiMaleSign } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FiEdit } from 'react-icons/fi';
 import ModalImage from "react-modal-image";
+import { useEffect } from 'react';
 
 export const Card = ({ name, lastName, country, age, email, pfp, gender, id, handleDelete, setModal }) => {
+
+    useEffect(() => {
+        document.querySelectorAll('.name, .email, .country').forEach(function (e) {
+            if (e.offsetWidth < e.scrollWidth) {
+                e.setAttribute('title', e.innerText);
+                e.classList.add("overflow-ellipsis");
+            } else {
+                e.removeAttribute('title');
+                e.classList.remove("overflow-ellipsis");
+            }
+        });
+    }, [])
+
     return (
         <>
             <div className="col-11 col-md-4 col-lg-3 person-card mx-3 my-4 p-0">
@@ -18,7 +32,7 @@ export const Card = ({ name, lastName, country, age, email, pfp, gender, id, han
                     <div className='gender d-flex align-items-center'>
                         <p className='mb-0 age'>{age}</p>
                         {gender === 'male' ?
-                            <BiMaleSign size='20px' className='ms-2'/>
+                            <BiMaleSign size='20px' className='ms-2' />
                             :
                             <BiFemaleSign size='20px' className='ms-2' />
                         }
@@ -28,7 +42,7 @@ export const Card = ({ name, lastName, country, age, email, pfp, gender, id, han
                     <ModalImage small={pfp} medium={pfp} alt={`${name} ${lastName} avatar`} hideZoom={true} hideDownload={true} />
                 </div>
                 <div className="content">
-                    <h1 className='h5 mb-2'>{name} {lastName}</h1>
+                    <h1 className='name h5 mb-2'>{name} {lastName}</h1>
                     <p className='email mb-1'><span className='bold'>Email:</span> {email}</p>
                     <p className='country mb-0'><span className='bold'>Country:</span> {country}</p>
                 </div>
