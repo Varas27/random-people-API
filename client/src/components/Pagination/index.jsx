@@ -16,28 +16,28 @@ export const Pagination = ({ currentPeopleLength, peoplePerPage, totalPeopleLeng
         }
     }, [currentPage, currentPeopleLength, paginate]);
 
-    const scrollToTop = () => {
+    useEffect(() => {
         window.scrollTo(0, 0);
-    }
+    }, [currentPage]);
 
     return (
         <>
             <nav className='container'>
                 <ul className='pagination-nav m-0 mx-auto col-10 col-md-6 col-lg-4 col-xl-3'>
                     <li className='pagination-arrow-list me-auto ms-2'>
-                        <button onClick={() => {paginate(currentPage - 1); scrollToTop()}} className='btn p-0 border-0' disabled={currentPage === 1 ? true : false}>
+                        <button onClick={() => {paginate(currentPage - 1)}} className='btn p-0 border-0' disabled={currentPage === 1 ? true : false}>
                             <MdKeyboardArrowLeft size='20px' />
                         </button>
                     </li>
                     {pageNumbers.map(number => (
                         <li key={number} className={`pagination-number-list mx-1 ${currentPage === number ? 'active' : ''}`}>
-                            <button onClick={() => {paginate(number); scrollToTop()}} className='btn border-0'>
+                            <button onClick={() => {paginate(number)}} className='btn border-0'>
                                 {number}
                             </button>
                         </li>
                     ))}
                     <li className='pagination-arrow-list ms-auto me-2'>
-                        <button onClick={() => {paginate(currentPage + 1); scrollToTop()}} className='btn p-0 border-0' disabled={currentPage === pageNumbers.length ? true : false}>
+                        <button onClick={() => {paginate(currentPage + 1)}} className='btn p-0 border-0' disabled={currentPage === pageNumbers.length ? true : false}>
                             <MdKeyboardArrowRight size='20px' />
                         </button>
                     </li>
