@@ -9,7 +9,7 @@ class peopleListService {
         try {
             if (this.firstTime) {
                 this.firstTime = false;
-                for (let i = 0; i < 15; i++) {
+                for (let i = 0; i < 48; i++) {
                     let gender = faker.helpers.arrayElement(genders);
                     let name = faker.name.firstName(gender);
                     let lastName = faker.name.lastName();

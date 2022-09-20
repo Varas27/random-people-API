@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Animated } from "react-animated-css";
 import { isEmail } from 'validator';
 
-export const Form = ({ handlePost }) => {
+export const Form = ({ handlePost, paginate }) => {
 
     const [gender, setGender] = useState('');
     const [name, setName] = useState('');
@@ -30,6 +30,7 @@ export const Form = ({ handlePost }) => {
     const finishForm = (e, person) => {
         e.preventDefault();
         handlePost(person);
+        paginate(1);
         setHandleInvalid(false);
         setRenderForm(false);
         setGender('');

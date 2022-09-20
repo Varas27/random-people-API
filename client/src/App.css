@@ -2,6 +2,26 @@ body {
   background: #FDE06F !important;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00717133;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #007171;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #005B5B;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #006464;
+}
+
 .wave-container-top {
   position: fixed;
   top: 0;

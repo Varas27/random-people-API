@@ -121,7 +121,7 @@ export const PeopleListContainer = () => {
                     :
 
                     <>
-                        <Form handlePost={handlePost} />
+                        <Form handlePost={handlePost} paginate={paginate}/>
                         <div className="filters-bar mt-3">
                             <Sorting handleSort={handleSort} sort={toggleSort} />
                             <Search search={search} setSearch={setSearch} />
